@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<BLE_Smart_Designer>
+    <Chip>20719-B1</Chip>
+    <Designer>WICED 20719-B1</Designer>
+    <DeviceSettings>
+        <Name>thermometer</Name>
+        <Appearance>Generic Thermometer</Appearance>
+        <BluetoothMode>Single Mode LE</BluetoothMode>
+        <Button>false</Button>
+        <UART>false</UART>
+        <Timer1Sec>false</Timer1Sec>
+        <LED>false</LED>
+        <SPI>false</SPI>
+        <Buzzer>false</Buzzer>
+        <Battery>false</Battery>
+        <GattConfig>
+            <GattDatabase>Enabled</GattDatabase>
+        </GattConfig>
+        <ClassOfDevice>
+            <ServiceClass>
+                <LimitedDiscoverableMode>false</LimitedDiscoverableMode>
+                <Positioning>false</Positioning>
+                <Networking>false</Networking>
+                <Rendering>false</Rendering>
+                <Capturing>false</Capturing>
+                <ObjectTransfer>false</ObjectTransfer>
+                <Audio>false</Audio>
+                <Telephony>false</Telephony>
+                <Information>false</Information>
+            </ServiceClass>
+            <MajorClass>Miscellaneous</MajorClass>
+        </ClassOfDevice>
+    </DeviceSettings>
+    <Service predefined="true" primary="true">
+        <Name>Generic Attribute</Name>
+        <Uuid>1801</Uuid>
+        <Description>Generic Attribute</Description>
+    </Service>
+    <Service predefined="true" primary="true">
+        <Name>Generic Access</Name>
+        <Uuid>1800</Uuid>
+        <Description>The generic_access service contains generic information about the device. All available Characteristics are readonly.</Description>
+        <Characteristic mandatory="true" predefined="true">
+            <Name>Device Name</Name>
+            <Uuid>2A00</Uuid>
+            <Description/>
+            <DataType>org.bluetooth.characteristic.gap.device_name</DataType>
+            <Size>11</Size>
+            <InitialValue>thermometer</InitialValue>
+            <Properties>
+                <Read type="Mandatory">true</Read>
+                <Write type="Optional">false</Write>
+                <WriteWithoutResponse type="Excluded">false</WriteWithoutResponse>
+                <SignedWrite type="Excluded">false</SignedWrite>
+                <ReliableWrite type="Excluded">false</ReliableWrite>
+                <Notify type="Excluded">false</Notify>
+                <Indicate type="Excluded">false</Indicate>
+                <WritableAuxiliaries type="Excluded">false</WritableAuxiliaries>
+                <Broadcast type="Excluded">false</Broadcast>
+            </Properties>
+            <Permissions>
+                <VariableLength>false</VariableLength>
+                <Read>true</Read>
+                <Write>false</Write>
+                <WriteWithoutResponse>false</WriteWithoutResponse>
+                <AuthenticatedRead>false</AuthenticatedRead>
+                <ReliableWrite>false</ReliableWrite>
+                <AuthenticatedWrite>false</AuthenticatedWrite>
+            </Permissions>
+        </Characteristic>
+        <Characteristic mandatory="true" predefined="true">
+            <Name>Appearance</Name>
+            <Uuid>2A01</Uuid>
+            <Description>The external appearance of this device. The values are composed of a category (10-bits) and sub-categories (6-bits).</Description>
+            <DataType>org.bluetooth.characteristic.gap.appearance</DataType>
+            <Size>2</Size>
+            <InitialValue>00 03</InitialValue>
+            <Properties>
+                <Read type="Mandatory">true</Read>
+                <Write type="Excluded">false</Write>
+                <WriteWithoutResponse type="Excluded">false</WriteWithoutResponse>
+                <SignedWrite type="Excluded">false</SignedWrite>
+                <ReliableWrite type="Excluded">false</ReliableWrite>
+                <Notify type="Excluded">false</Notify>
+                <Indicate type="Excluded">false</Indicate>
+                <WritableAuxiliaries type="Excluded">false</WritableAuxiliaries>
+                <Broadcast type="Excluded">false</Broadcast>
+            </Properties>
+            <Permissions>
+                <VariableLength>false</VariableLength>
+                <Read>true</Read>
+                <Write>false</Write>
+                <WriteWithoutResponse>false</WriteWithoutResponse>
+                <AuthenticatedRead>false</AuthenticatedRead>
+                <ReliableWrite>false</ReliableWrite>
+                <AuthenticatedWrite>false</AuthenticatedWrite>
+            </Permissions>
+        </Characteristic>
+    </Service>
+    <Service predefined="true" primary="true">
+        <Name>Health Thermometer</Name>
+        <Uuid>1809</Uuid>
+        <Description>The Health Thermometer service exposes temperature and other data from a thermometer intended for healthcare and fitness applications.</Description>
+        <Characteristic mandatory="true" predefined="true">
+            <Name>Temperature Measurement</Name>
+            <Uuid>2A1C</Uuid>
+            <Description>The Temperature Measurement characteristic is a variable length structure containing a Flags field, a Temperature Measurement Value field and, based upon the contents of the Flags field, optionally a Time Stamp field and/or a Temperature Type field.</Description>
+            <DataType>org.bluetooth.characteristic.temperature_measurement</DataType>
+            <Size>1</Size>
+            <InitialValue>01</InitialValue>
+            <Properties>
+                <Read type="Excluded">false</Read>
+                <Write type="Excluded">false</Write>
+                <WriteWithoutResponse type="Excluded">false</WriteWithoutResponse>
+                <SignedWrite type="Excluded">false</SignedWrite>
+                <ReliableWrite type="Excluded">false</ReliableWrite>
+                <Notify type="Excluded">false</Notify>
+                <Indicate type="Mandatory">true</Indicate>
+                <WritableAuxiliaries type="Excluded">false</WritableAuxiliaries>
+                <Broadcast type="Excluded">false</Broadcast>
+            </Properties>
+            <Permissions>
+                <VariableLength>false</VariableLength>
+                <Read>false</Read>
+                <Write>false</Write>
+                <WriteWithoutResponse>false</WriteWithoutResponse>
+                <AuthenticatedRead>true</AuthenticatedRead>
+                <ReliableWrite>false</ReliableWrite>
+                <AuthenticatedWrite>true</AuthenticatedWrite>
+            </Permissions>
+        </Characteristic>
+        <Characteristic mandatory="false" predefined="true">
+            <Name>Temperature Type</Name>
+            <Uuid>2A1D</Uuid>
+            <Description>The Temperature Type characteristic is an enumeration that indicates where the temperature was measured.</Description>
+            <DataType>org.bluetooth.characteristic.temperature_type</DataType>
+            <Size>1</Size>
+            <InitialValue>01</InitialValue>
+            <Properties>
+                <Read type="Mandatory">true</Read>
+                <Write type="Excluded">false</Write>
+                <WriteWithoutResponse type="Excluded">false</WriteWithoutResponse>
+                <SignedWrite type="Excluded">false</SignedWrite>
+                <ReliableWrite type="Excluded">false</ReliableWrite>
+                <Notify type="Excluded">false</Notify>
+                <Indicate type="Excluded">false</Indicate>
+                <WritableAuxiliaries type="Excluded">false</WritableAuxiliaries>
+                <Broadcast type="Excluded">false</Broadcast>
+            </Properties>
+            <Permissions>
+                <VariableLength>false</VariableLength>
+                <Read>true</Read>
+                <Write>false</Write>
+                <WriteWithoutResponse>false</WriteWithoutResponse>
+                <AuthenticatedRead>false</AuthenticatedRead>
+                <ReliableWrite>false</ReliableWrite>
+                <AuthenticatedWrite>false</AuthenticatedWrite>
+            </Permissions>
+        </Characteristic>
+        <Characteristic mandatory="false" predefined="true">
+            <Name>Intermediate Temperature</Name>
+            <Uuid>2A1E</Uuid>
+            <Description>The Intermediate Temperature characteristic has the same format as the Temperature Measurement characteristic. However, due to a different context, the Value field is referred to as the Intermediate Temperature Value field.</Description>
+            <DataType>org.bluetooth.characteristic.intermediate_temperature</DataType>
+            <Size>17</Size>
+            <InitialValue>00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00</InitialValue>
+            <Properties>
+                <Read type="Excluded">false</Read>
+                <Write type="Excluded">false</Write>
+                <WriteWithoutResponse type="Excluded">false</WriteWithoutResponse>
+                <SignedWrite type="Excluded">false</SignedWrite>
+                <ReliableWrite type="Excluded">false</ReliableWrite>
+                <Notify type="Mandatory">true</Notify>
+                <Indicate type="Excluded">false</Indicate>
+                <WritableAuxiliaries type="Excluded">false</WritableAuxiliaries>
+                <Broadcast type="Excluded">false</Broadcast>
+            </Properties>
+            <Permissions>
+                <VariableLength>false</VariableLength>
+                <Read>true</Read>
+                <Write>true</Write>
+                <WriteWithoutResponse>false</WriteWithoutResponse>
+                <AuthenticatedRead>false</AuthenticatedRead>
+                <ReliableWrite>false</ReliableWrite>
+                <AuthenticatedWrite>false</AuthenticatedWrite>
+            </Permissions>
+        </Characteristic>
+        <Characteristic mandatory="false" predefined="true">
+            <Name>Measurement Interval</Name>
+            <Uuid>2A21</Uuid>
+            <Description>The Measurement Interval characteristic defines the time between measurements.</Description>
+            <DataType>org.bluetooth.characteristic.measurement_interval</DataType>
+            <Size>2</Size>
+            <InitialValue>01 01</InitialValue>
+            <Properties>
+                <Read type="Mandatory">true</Read>
+                <Write type="Optional">true</Write>
+                <WriteWithoutResponse type="Excluded">false</WriteWithoutResponse>
+                <SignedWrite type="Excluded">false</SignedWrite>
+                <ReliableWrite type="Excluded">false</ReliableWrite>
+                <Notify type="Excluded">false</Notify>
+                <Indicate type="Optional">true</Indicate>
+                <WritableAuxiliaries type="Excluded">false</WritableAuxiliaries>
+                <Broadcast type="Excluded">false</Broadcast>
+            </Properties>
+            <Permissions>
+                <VariableLength>false</VariableLength>
+                <Read>true</Read>
+                <Write>true</Write>
+                <WriteWithoutResponse>false</WriteWithoutResponse>
+                <AuthenticatedRead>false</AuthenticatedRead>
+                <ReliableWrite>false</ReliableWrite>
+                <AuthenticatedWrite>false</AuthenticatedWrite>
+            </Permissions>
+            <ClientConfiguration>
+                <Notification>false</Notification>
+                <Indication>false</Indication>
+            </ClientConfiguration>
+        </Characteristic>
+    </Service>
+</BLE_Smart_Designer>
